@@ -1,0 +1,64 @@
+import java.util.Scanner;
+public class ATM {
+public static void main(String[] args) {
+Scanner scanner = new Scanner(System.in);
+long amount = 1000, deposit, withdraw;
+int choice, pin = 0, k = 0;
+// Initialize pin and k here char transaction = 'y';
+
+while (pin != 1528) {
+System.out.print("ENTER YOUR SECRET PIN NUMBER:");
+pin = scanner.nextInt(); if (pin != 1528)
+System.out.println("PLEASE ENTER VALID PASSWORD");
+}
+
+do {
+System.out.println("**Welcome to ATM Service****"); 
+System.out.println("1. Check Balance");
+System.out.println("2. Withdraw Cash");
+System.out.println("3. Deposit Cash"); 
+System.out.println("4. Quit"); 
+System.out.println("******?*********?\n");
+System.out.print("Enter your choice: ");
+choice = scanner.nextInt();
+
+switch (choice) { 
+case 1:
+System.out.println("\n YOUR BALANCE IN Rs : " + amount);
+break;
+case 2:
+System.out.print("\n ENTER THE AMOUNT TWITHDRAW:"); 
+withdraw = scanner.nextLong();
+if (withdraw % 100 != 0) {
+System.out.println("\n PLEASE ENTER THE AMOUNT IN MULTIPLES OF 100");}
+else if (withdraw > (amount - 500)) { 
+System.out.println("\n INSUFFICENT BALANCE");
+} 
+else {
+amount = amount - withdraw;
+System.out.println("\n\n PLEASE COLLECT CASH"); 
+System.out.println("YOUR CURRENT BALANCE IS "+amount);
+}
+break; 
+case 3:
+System.out.print("\n ENTER THE AMOUNT TO DEPOSIT: ");
+deposit = scanner.nextLong();
+amount = amount + deposit;
+System.out.println("YOUR BALANCE IS " + amount); 
+break;
+case 4:
+System.out.println("\n THANK U USING ATM"); 
+break;
+default:
+System.out.println("\n INVALID CHOICE");
+}
+
+System.out.print("\n\n\n DO U WISH TO HAVE ANOTHER TRANSCATION?(y/n): ");
+scanner.nextLine();
+transaction = scanner.nextLine().charAt(0); if (transaction == 'n' || transaction == 'N')
+k = 1;
+} while (k != 1);
+
+System.out.println("\n\n THANKS FOR USING OUR ATM SERVICE");
+}
+}
