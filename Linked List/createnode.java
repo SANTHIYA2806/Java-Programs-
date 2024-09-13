@@ -3,7 +3,7 @@ class Node{
     int data;
     Node next;
 }
-public class ds {
+public class createnode {
     Node head;
 
     void Create(int n) {
